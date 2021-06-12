@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <h3>Index</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, libero.</p>
 </body>
 
 </html>
