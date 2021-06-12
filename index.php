@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, libero.</p>
+  <h1>Hello Heroku!</h1>
 </body>
 
 </html>
