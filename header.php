@@ -21,18 +21,22 @@
       </button>
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.php">Register</a>
-          </li>
+
+        <?php if($_SESSION['user_id']) : ?>
           <li class="nav-item">
             <a class="nav-link" href="server.php?logout=1">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
           </li>
+          <?php else : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Register</a>
+          </li>
+          <?php endif; ?>
         </ul>
       </div>
     </div>
