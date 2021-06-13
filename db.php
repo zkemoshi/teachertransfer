@@ -1,11 +1,24 @@
+<!-- <?php
+// Local
+
+// $db = mysqli_connect('localhost', 'root', '', 'transfer');
+
+// if (!$db) {
+//   die('Error Connection..');
+// }
+
+?> -->
+
 <?php
-// mysql://b23c10711bb106:e40c0a53@eu-cdbr-west-01.cleardb.com/heroku_8fdd24cf88e849e?reconnect=true
-// username: b23c10711bb106
-// password: e40c0a53
-// Host: eu-cdbr-west-01.cleardb.com
+//Get Heroku ClearDB connection information
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"],1);
 
-$db = mysqli_connect('localhost', 'root', '', 'transfer');
-
-if (!$db) {
-  die('Error Connection..');
-}
+$active_group = 'default';
+$query_builder = TRUE;
+// Connect to DB
+$db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+?>
