@@ -1,5 +1,5 @@
+<?php include 'server.php' ?>
 <?php include 'header.php'; ?>
-
 
   <!-- Login Form Starts here... -->
   <main class="login-form my-4">
@@ -9,7 +9,9 @@
           <div class="card">
             <div class="card-header">Register</div>
             <div class="card-body">
-              <form action="login.php" method="POST">
+              <?php include 'error.php'; ?>
+              <h2>Hello</h2>
+              <form action="register.php" method="POST">
                 <div class="form-group row mb-2">
                   <label for="fullName" class="col-md-4 col-form-label text-md-right">Full Name</label>
                   <div class="col-md-6">
@@ -95,10 +97,10 @@
                 </div>
 
                 <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary col-6 align-items-md-center" name="login_user">
-                    LOGIN
+                  <button type="submit" class="btn btn-primary col-6 align-items-md-center" name="reg_teacher">
+                    REGISTER
                   </button>
-                  <p class="mt-2 text-center">Not a member? <a href="register.php">Register</a></p>
+                  <p class="mt-2 text-center">Not a member? <a href="login.php">Login</a></p>
                 </div>
               </form>
             </div>
