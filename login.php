@@ -1,3 +1,4 @@
+  <?php include 'server.php' ?>
   <?php include 'header.php'; ?>
 
   <!-- Login Form Starts here... -->

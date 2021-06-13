@@ -12,13 +12,13 @@ $errors = [];
 
 
 // REGISTER TEACHER
-if (isset($_POST['reg_teacher'])) {
-  echo 'here..';
+if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $fullName = mysqli_real_escape_string($db, $_POST['fullName']);
   $checkNumber = mysqli_real_escape_string($db, $_POST['checkNumber']);
   $mobile = mysqli_real_escape_string($db, $_POST['mobile']);
   $subject = mysqli_real_escape_string($db, $_POST['subject']);
+  $schoolLevel = mysqli_real_escape_string($db, $_POST['schoolLevel']);
   $transferFrom = mysqli_real_escape_string($db, $_POST['transferFrom']);
   $transferTo = mysqli_real_escape_string($db, $_POST['transferTo']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -60,7 +60,7 @@ if (isset($_POST['reg_teacher'])) {
     $user_id_array = mysqli_fetch_assoc($user_id_result);
     $user_id = $user_id_array['id'];
 
-    $_SESSION['teacherFullName'] = $fullName;
+    $_SESSION['fullName'] = $fullName;
     $_SESSION['user_id'] = $user_id;
 
 
@@ -75,10 +75,10 @@ if (isset($_POST['reg_teacher'])) {
   }
 }
 
-LOGIN USER
+// LOGIN USER
 if (isset($_POST['login_user'])) {
   // receive all input values from the form
-  $userEmail = mysqli_real_escape_string($db, $_POST['userEmail']);
+  $email = mysqli_real_escape_string($db, $_POST['email']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   // Encrpt password to look same as table password
@@ -88,7 +88,7 @@ if (isset($_POST['login_user'])) {
   // first check the database to make sure 
   // a teacher exist with the same password
 
-  $user_check_query = "SELECT * FROM users WHERE userEmail='$userEmail' AND password='$password' LIMIT 1";
+  $user_check_query = "SELECT * FROM users WHERE email='$email' AND password='$password' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
 
   $user = mysqli_fetch_assoc($result);
@@ -97,22 +97,12 @@ if (isset($_POST['login_user'])) {
     array_push($errors, "Wrong password/Username");
   } else {
     $user_id = $user['id'];
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['fullName'] = $user['fullName'];
+
 
     //Login for a Teacher
     if ($user['role'] == 2) {
-
-      //Query Teacher table for Details
-      $teacher_query = "SELECT * FROM teacher WHERE user_id='$user_id' LIMIT 1";
-
-      $teacher_result = mysqli_query($db, $teacher_query);
-      $teacher_array = mysqli_fetch_assoc($teacher_result);
-
-      echo $teacher_array;
-      echo $teacher_array['teacherFullName'];
-
-      $_SESSION['teacherFullName'] = $teacher_array['teacherFullName'];
-      $_SESSION['user_id'] = $user_id;
-
       header('location: index.php');
     }
 
@@ -137,10 +127,12 @@ if (isset($_POST['login_user'])) {
 }
 
 //LOGOUT USER
-if ($_GET['id']) {
+if ($_GET['logout']) {
   unset($_SESSION['user_id']);
-  unset($_SESSION['teacherFullName']);
+  unset($_SESSION['fullname']);
   header("location: login.php");
 }
+
+
 
 // ... 

@@ -10,7 +10,6 @@
             <div class="card-header">Register</div>
             <div class="card-body">
               <?php include 'error.php'; ?>
-              <h2>Hello</h2>
               <form action="register.php" method="POST">
                 <div class="form-group row mb-2">
                   <label for="fullName" class="col-md-4 col-form-label text-md-right">Full Name</label>
@@ -97,7 +96,7 @@
                 </div>
 
                 <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary col-6 align-items-md-center" name="reg_teacher">
+                  <button type="submit" class="btn btn-primary col-6 align-items-md-center" name="reg_user">
                     REGISTER
                   </button>
                   <p class="mt-2 text-center">Not a member? <a href="login.php">Login</a></p>

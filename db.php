@@ -4,8 +4,8 @@
 // password: e40c0a53
 // Host: eu-cdbr-west-01.cleardb.com
 
-$conn = mysqli_connect('localhost', 'root', '', 'transfer');
+$db = mysqli_connect('localhost', 'root', '', 'transfer');
 
-if (!$conn) {
+if (!$db) {
   die('Error Connection..');
 }
