@@ -28,7 +28,7 @@
             <a class="nav-link" href="register.php">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="server.php?logout=1">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>

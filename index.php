@@ -1,6 +1,10 @@
 <?php include 'server.php' ?>
 <?php include 'header.php'; ?>
 <?php 
+    if (!isset($_SESSION['user_id'])) {
+      header('location: login.php');
+    }
+
     $user_id = $_SESSION['user_id'];
     $teacher_request_query = "SELECT * FROM transfers WHERE userId='$user_id'";
 

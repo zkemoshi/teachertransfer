@@ -25,7 +25,6 @@ if (isset($_POST['reg_user'])) {
   $confirmPassword = mysqli_real_escape_string($db, $_POST['confirmPassword']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
 
-  echo 'here2..';
   // Password Match Validation
   if ($password != $confirmPassword) {
     array_push($errors, "The two passwords do not match");
